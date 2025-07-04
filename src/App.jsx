@@ -9,7 +9,7 @@ export default function App() {
   useEffect(() => {
     // Only read from localStorage, don't reset
     const saved = JSON.parse(localStorage.getItem('saved_urls'));
-    if (saved.length !==0){
+    if (saved?.length !==0){
       setUrls(saved);
     } 
   }, []);
@@ -19,7 +19,7 @@ export default function App() {
   }, [urls]);
 
   const addUrl = () => {
-    const trimmed = input.trim();
+    const trimmed = input?.trim();
     if (!trimmed) return;
     setUrls(prev => [...prev, trimmed]);
     setInput('');
@@ -45,7 +45,7 @@ export default function App() {
         <div className="flex items-center gap-2 mb-4">
           <input
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => setInput(e?.target?.value)}
             placeholder="Paste a URL"
             className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-black"
           />
